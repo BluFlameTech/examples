@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:ListBucketMultipartUploads",
+        "s3:ListBucket",
+        "s3:ListMultipartUploadParts",
+        "s3:PutObject",
+        "s3:GetObjectAcl",
+        "s3:GetObject",
+        "s3:GetEncryptionConfiguration",
+        "s3:AbortMultipartUpload",
+        "s3:DeleteObject"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "${bucket_arn}",
+        "arn:aws:s3:::*/*"
+      ]
+    }
+  ]
+}
