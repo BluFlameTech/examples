@@ -8,4 +8,4 @@ List of examples:
 2. [Terraform Zero-Downtime ASG Matching Instances](terraform/zero-dt-asg-matching)
 3. [Redis Hibernate L2 Cache With Jedis](java/cache/jedis-hibernate)
 
-small change
+small change deserves another
