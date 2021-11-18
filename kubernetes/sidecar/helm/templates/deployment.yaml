@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sidecar
+  labels:
+    app: sidecar
+spec:
+  replicas: {{ .Values.replicas | default 1}}
+  selector:
+    matchLabels:
+      app: sidecar
+  template:
+    metadata:
+      labels:
+        app: sidecar
+        type: deployment
+    spec:
+      containers:
+        - name: nginx
+          image: mynginx:latest
+          imagePullPolicy: "Never"
+          ports:
+            - name: web-port
+              containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /index.html
+              port: web-port
+            failureThreshold: 2
+            periodSeconds: 30
+          startupProbe:
+            httpGet:
+              path: /index.html
+              port: web-port
+            failureThreshold: 10
+            periodSeconds: 30
+        - name: express
+          image: myexpress:latest
+          imagePullPolicy: "Never"
+          ports:
+            - name: app-port
+              containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: app-port
+            failureThreshold: 2
+            periodSeconds: 30
+          startupProbe:
+            httpGet:
+              path: /
+              port: app-port
+            failureThreshold: 10
+            periodSeconds: 30

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sidecar-lb
+  labels:
+    app: sidecar
+    type: loadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: sidecar
+    type: deployment
+  ports:
+    - name: web
+      port: 80
+      targetPort: 80

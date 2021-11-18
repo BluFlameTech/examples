@@ -1,0 +1,6 @@
+apiVersion: v2
+name: sidecar
+appVersion: latest
+description: Express with NGINX sidecar
+version: "1.0.0"
+type: application
