@@ -18,7 +18,7 @@ spec:
       containers:
         - name: nginx
           image: mynginx:latest
-          imagePullPolicy: "Never"
+          imagePullPolicy: "IfNotPresent"
           ports:
             - name: web-port
               containerPort: 80
@@ -36,7 +36,7 @@ spec:
             periodSeconds: 30
         - name: express
           image: myexpress:latest
-          imagePullPolicy: "Never"
+          imagePullPolicy: "IfNotPresent"
           ports:
             - name: app-port
               containerPort: 3000
