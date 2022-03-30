@@ -6,8 +6,9 @@ ops:
   foo:
     - bar:
         path: 'java/cache/jedis-hibernate'
-        script: mvn clean test
+        script: |
+          mvn clean test
 stages:
-  test:
-    ops:
-      - foo.bar
+  - test:
+      ops:
+        - foo
