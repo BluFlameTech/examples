@@ -1,0 +1,13 @@
+lang:
+  java: 15
+events:
+  git_branch: any
+ops:
+  foo:
+    - bar:
+        path: 'java/cache/jedis-hibernate'
+        script: mvn clean test
+stages:
+  test:
+    ops:
+      - foo.bar
