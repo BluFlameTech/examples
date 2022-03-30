@@ -3,12 +3,12 @@ lang:
 events:
   git_branch: any
 ops:
-  foo:
-    - bar:
+  java:
+    - cache:
         path: 'java/cache/jedis-hibernate'
         script: |
-          mvn clean test
+          ./mvnw clean test --no-transfer-progress
 stages:
   - test:
       ops:
-        - foo
+        - 'java.cache'
