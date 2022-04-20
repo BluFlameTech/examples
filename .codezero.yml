@@ -9,6 +9,6 @@ ops:
         script: |
           ./mvnw clean test --no-transfer-progress
 stages:
-  - test:
-      ops:
-        - 'java.cache'
+  test:
+    ops:
+      - 'java.cache'
