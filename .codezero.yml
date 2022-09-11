@@ -1,0 +1,14 @@
+lang:
+  java: 15
+events:
+  git_branch: any
+ops:
+  java:
+    - cache:
+        path: 'java/cache/jedis-hibernate'
+        script: |
+          ./mvnw clean test --no-transfer-progress
+stages:
+  test:
+    ops:
+      - 'java.cache'
